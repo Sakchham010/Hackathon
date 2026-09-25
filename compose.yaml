@@ -1,0 +1,14 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: cursor-model-router-mongo
+    restart: unless-stopped
+    ports:
+      - "27117:27017"
+    volumes:
+      - cursor_model_router_mongo_data:/data/db
+    command: ["--wiredTigerCacheSizeGB", "0.5"]
+
+volumes:
+  cursor_model_router_mongo_data:
+    name: cursor_model_router_mongo_data
